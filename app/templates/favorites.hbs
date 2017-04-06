@@ -1,0 +1,11 @@
+<h3>Favorites Index</h3>
+{{#link-to "books"}}Back to books{{/link-to}}
+
+{{#each model as |book|}}
+  <div>
+    {{book.title}}
+    {{#if book.favorite}}
+      <button {{action 'remove' book}}>-</button>
+    {{/if}}
+  </div>
+{{/each}}

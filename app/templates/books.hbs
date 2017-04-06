@@ -1,0 +1,24 @@
+{{outlet}}
+
+<h3>Books Index</h3>
+{{#link-to "favorites"}}Favorites ({{model.favorites.length}}){{/link-to}}
+
+{{#each model.books as |book|}}
+  <div class="book">
+    <div class="book-head">
+      {{book.title}}
+      {{#if book.favorite}}
+        <button {{action 'remove' book}}>-</button>
+      {{else}}
+        <button {{action 'add' book}}>+</button>
+      {{/if}}
+    </div>
+    <div class="book-details">
+    <span class="author">Author: {{book.author}}</span>
+    <span class="isbn">ISBN: {{book.isbn}}</span>
+
+    </div>
+  </div>
+{{/each}}
+
+
